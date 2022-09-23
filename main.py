@@ -5,9 +5,7 @@ print(logo)
 
 def caesar(text, shift, x):
 
-  cipher_text = ''
-  if shift > 25: # Check if shift is biggen then len(alphabet).
-    shift %= 25
+  cipher_text = ''   
     
   if x != "encode": # Change the shift number to negative for decode.
       shift *= -1
@@ -43,6 +41,7 @@ def menu():
   if direction == "encode" or direction == "decode":
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
+    shift %= 25 # Putting number shift in range of the alphabetic list.
     caesar(text, shift, direction)
   else:
     menu()
